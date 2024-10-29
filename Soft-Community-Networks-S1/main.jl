@@ -114,7 +114,16 @@ function save_positions(θ, ktar, μ, filename)
     end
 end
 #-------------------------------------------------------------------------------------------
+function create_folder(path)
+    if !isdir(path)
+        mkdir(path)
+    end
+end
+#-------------------------------------------------------------------------------------------
 function main()
+    # Create folder if it does not exist
+    create_folder("./networks")
+
     filename = "network_γ$(γ)_Λ$(Λ)_N$(N)"
     println("Generating network with S1 model... filename: $(filename)")
 
