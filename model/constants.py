@@ -1,0 +1,9 @@
+from numpy import pi
+
+PATH_TO_NETWORKS = "./synthetic_networks"
+OPINION_RANGE = [0, 2*pi]
+GLOBAL_INFLUENCE = 1.0
+TRUST_LEVEL = 0.5
+NUM_STEPS = 100000
+GLOBAL_PERIOD = 10
+GLOBAL_TRUST_LEVEL = 0.5
