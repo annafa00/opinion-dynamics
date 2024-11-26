@@ -11,7 +11,7 @@ using LinearAlgebra
 function plot_network(graph, communities, opinions, name)
     G = pyvis.Network(height="1000px", width="100%")
     pos = nx.spring_layout(graph)
-    colors = ["red", "blue", "green", "orange", "purple", "brown", "pink", "gray", "cyan", "magenta", "yellow", "black"]
+    colors = ["red", "blue", "green", "orange", "purple", "brown", "pink", "gray", "cyan", "magenta", "yellow", "black", "white"]
     j = 1
     for comm in communities
         for i in comm
@@ -174,7 +174,7 @@ function different_opinions(opinions)
 end
 #-----------------------------------------------------------------------------------------------------------------------------------
 function main()
-    name = "synthetic_network_N_300_blocks_5_prr_0.12_prs_0.02"
+    name = "synthetic_network_N_300_blocks_5_prr_0.08_prs_0.02"
 
     # Convert the graph to a NetworkX graph
     nx_graph = nx.Graph(nx.read_pajek("$PATH_TO_NETWORKS/$name.net"))
@@ -194,7 +194,7 @@ function main()
     opinion_history = zeros(NUM_STEPS, size)
 
     for step in 1:NUM_STEPS
-        if step != NUM_STEPS && different_opinions(opinions)
+        if different_opinions(opinions)
             # Local interactions
             node = rand(collect(nx_graph.nodes()))
             local_interaction_update!(nx_graph, opinions, node, communities)
