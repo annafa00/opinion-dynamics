@@ -1,4 +1,6 @@
 model/__pycache__/
 model/synthetic_networks/
+model/plots/
+model/lib/
 Soft-Community-Networks-S1/networks/
 .DS_Store
